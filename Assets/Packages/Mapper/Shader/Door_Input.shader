@@ -1,10 +1,10 @@
-﻿Shader "Unlit/Door" {
+﻿Shader "Door/Input" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
 		_Color ("Color", Color) = (0.0, 0.5, 0.5, 0.5)
 	}
 	SubShader {
-		Tags { "RenderType"="Transparent" "Queue"="Overlay" }
+		Tags { "RenderType"="Transparent" "Queue"="Overlay" "Door"="Input" }
 		Blend SrcAlpha OneMinusSrcAlpha
 		ZTest Always ZWrite Off Cull Off Fog { Mode Off }
 
