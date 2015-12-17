@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Portal
+  m_Name: Portal Out
   m_Shader: {fileID: 4800000, guid: 3a34b8e0969795c43a17554e360508ba, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -23,4 +23,8 @@ Material:
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
-    m_Colors: {}
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 0, g: 0.5, b: 0.5, a: 0.5}

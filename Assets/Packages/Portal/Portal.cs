@@ -3,9 +3,12 @@ using System.Collections;
 using System.Text;
 
 namespace PortalSystem {
+	
+	[ExecuteInEditMode]
 	public class Portal : MonoBehaviour {
 		public Camera targetCamera;
 		public Portal pair;
+		public Mesh sharedMesh;
 
 		MeshFilter _filt;
 		Mesh _mesh;
@@ -14,19 +17,23 @@ namespace PortalSystem {
 
 		void OnEnable() {
 			_filt = GetComponent<MeshFilter>();
-			_mesh = _filt.mesh;
+			_mesh = Instantiate(sharedMesh);
 			_mesh.MarkDynamic();
 			_vertices = _mesh.vertices;
 			_uvs = _mesh.uv;
+			_filt.sharedMesh = _mesh;
 		}
 		void OnDisable() {
-			Destroy(_mesh);
+			if (Application.isPlaying)
+				Destroy(_mesh);
+			else
+				DestroyImmediate(_mesh);
 		}
 		void Update() {
 			if (targetCamera == null || pair == null)
 				return;
 
-			pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);			
+			pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);
 		}
 
 		void Connect(Matrix4x4 pairModel, Camera cam, Vector3[] pairVertices) {

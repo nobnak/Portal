@@ -10,7 +10,7 @@
 
 		Pass {
 			CGPROGRAM
-			#define OUTPUT_UV
+			//#define OUTPUT_UV
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"

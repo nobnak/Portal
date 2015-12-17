@@ -1,8 +1,8 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Mapper\Portal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Portal\Portal.cs">
     <Files>
-      <File FileName="Assets\Packages\Mapper\Portal.cs" Line="3" Column="1" />
+      <File FileName="Assets\Packages\Portal\Portal.cs" Line="36" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
