@@ -40,7 +40,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc84c5a687f93dd42ac91e8004f86724, type: 2}
+  - {fileID: 2100000, guid: 3acc5f80e52c77a488bc77cd7a378a25, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc8daf05703dc24daeb94fa40ff9b18, type: 3}
+  m_Script: {fileID: 11500000, guid: 4460ccd7529696b4dba7d339edede794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
@@ -84,7 +84,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dc84c5a687f93dd42ac91e8004f86724, type: 2}
+      objectReference: {fileID: 2100000, guid: 3acc5f80e52c77a488bc77cd7a378a25, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 31

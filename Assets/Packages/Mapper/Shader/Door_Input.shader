@@ -10,6 +10,7 @@
 
 		Pass {
 			CGPROGRAM
+			#define OUTPUT_UV
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
@@ -25,9 +26,16 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float4 _MainTex_TexelSize;
 			float4 _Color;
 			
 			v2f vert(appdata v) {
+				float2 uv = v.uv;
+				#ifdef UNITY_UV_STARTS_AT_TOP
+				if (_MainTex_TexelSize.y < 0)
+					uv.y = 1 - uv.y;
+				#endif
+
 				v2f o;
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
@@ -35,8 +43,12 @@
 			}
 			
 			fixed4 frag(v2f i) : SV_Target {
+				#ifdef OUTPUT_UV
+				return float4(i.uv, 0, 1);
+				#else
 				fixed4 col = tex2D(_MainTex, i.uv);
 				return col * _Color;
+				#endif
 			}
 			ENDCG
 		}
