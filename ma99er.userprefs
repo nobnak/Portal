@@ -1,10 +1,8 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Mapper\Shader\Door_Output.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Mapper\Portal.cs">
     <Files>
-      <File FileName="Assets\Packages\Mapper\Shader\Door_Output.shader" Line="37" Column="36" />
-      <File FileName="Assets\Packages\Mapper\Mapper.cs" Line="1" Column="1" />
-      <File FileName="Assets\Packages\Mapper\Shader\Door_Input.shader" Line="33" Column="22" />
+      <File FileName="Assets\Packages\Mapper\Portal.cs" Line="3" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
