@@ -4,9 +4,13 @@ using System.Collections;
 namespace PortalSystem {
 	[ExecuteInEditMode]
 	public class Example : MonoBehaviour {
+		public enum DebugModeEnum { Default = 0, UV, Setup }
+
+		public DebugModeEnum debugMode;
 		public Camera targetCamera;
 		public Transform background;
 		public Texture2D inputSize;
+		public Material portalIn;
 		public Material portalOut;
 
 		RenderTexture _inputTex;
@@ -22,8 +26,30 @@ namespace PortalSystem {
 				targetCamera.targetTexture = _inputTex;
 				portalOut.mainTexture = _inputTex;
 			}
+
+			ApplyDebugMode();
 		}
 
+		void ApplyDebugMode() {
+			switch (debugMode) {
+			default:
+				SwitchKeyword(portalIn, Portal.KEYWORD_HIDDEN);
+				SwitchKeyword(portalOut, Portal.KEYWORD_DEFAULT);
+				break;
+			case DebugModeEnum.UV:
+				SwitchKeyword(portalIn, Portal.KEYWORD_UV);
+				SwitchKeyword(portalOut, Portal.KEYWORD_UV);
+				break;
+			case DebugModeEnum.Setup:
+				SwitchKeyword(portalIn, Portal.KEYWORD_DEFAULT);
+				SwitchKeyword(portalOut, Portal.KEYWORD_DEFAULT);
+				break;
+			}
+		}
+		void SwitchKeyword(Material mat, string keyword) {
+			mat.shaderKeywords = null;
+			mat.EnableKeyword(keyword);
+		}
 		void ReleaseTex() {
 			if (Application.isPlaying)
 				Destroy(_inputTex);

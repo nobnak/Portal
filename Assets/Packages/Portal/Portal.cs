@@ -6,6 +6,10 @@ namespace PortalSystem {
 	
 	[ExecuteInEditMode]
 	public class Portal : MonoBehaviour {
+		public const string KEYWORD_DEFAULT = "DEFAULT";
+		public const string KEYWORD_UV = "UV";
+		public const string KEYWORD_HIDDEN = "HIDDEN";
+
 		public Camera targetCamera;
 		public Portal pair;
 		public Mesh sharedMesh;
@@ -30,10 +34,10 @@ namespace PortalSystem {
 				DestroyImmediate(_mesh);
 		}
 		void Update() {
-			if (targetCamera == null || pair == null)
-				return;
 
-			pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);
+
+			if (targetCamera != null && pair != null)
+				pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);
 		}
 
 		void Connect(Matrix4x4 pairModel, Camera cam, Vector3[] pairVertices) {
