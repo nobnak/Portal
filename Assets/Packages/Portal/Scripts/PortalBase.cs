@@ -37,11 +37,15 @@ namespace PortalSystem {
 			else
 				DestroyImmediate(_mesh);
 		}
-		public void Connect(Matrix4x4 pairModel, Camera cam, Vector3[] pairVertices) {
-			var vertexCount = pairVertices.Length;
+		public void ConnectUV(PortalBase pair, Camera cam) {
+			var pair2world = pair.transform.localToWorldMatrix;
+			var vertices = pair._vertices;
+			var vertexCount = vertices.Length;
+			var uvs = pair._uvs;
 			for (var i = 0; i < vertexCount; i++)
-				_uvs[i] = (Vector2)cam.WorldToViewportPoint(pairModel.MultiplyPoint3x4(pairVertices[i]));
-			_mesh.uv = _uvs;
+				uvs[i] = (Vector2)cam.WorldToViewportPoint(pair2world.MultiplyPoint3x4(vertices[i]));
+			_mesh.uv = uvs;
+			pair._mesh.uv = uvs;
 		}
 		public Mesh GenerateQuad() {
 			var mesh = new Mesh();

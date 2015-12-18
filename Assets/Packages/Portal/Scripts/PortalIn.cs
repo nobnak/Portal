@@ -17,7 +17,7 @@ namespace PortalSystem {
 		}
 		void Update() {
 			if (targetCamera != null && pair != null)
-				pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);
+				pair.ConnectUV(this, targetCamera);
 		}
 	}
 }
