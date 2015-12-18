@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Portal In
-  m_Shader: {fileID: 4800000, guid: 592355742942d9e4db3117827b6daba8, type: 3}
-  m_ShaderKeywords: HIDDEN
+  m_Shader: {fileID: 4800000, guid: 3a34b8e0969795c43a17554e360508ba, type: 3}
+  m_ShaderKeywords: ONLY_COLOR
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2

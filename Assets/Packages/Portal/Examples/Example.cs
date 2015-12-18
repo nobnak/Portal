@@ -4,46 +4,53 @@ using System.Collections;
 namespace PortalSystem {
 	[ExecuteInEditMode]
 	public class Example : MonoBehaviour {
-		public enum DebugModeEnum { Default = 0, UV, Setup }
+		public enum KeywordEnum { ONLY_COLOR = 0, ONLY_TEXTURE, COLOR_TEXTURE, UV, HIDDEN }
+		public enum DebugModeEnum { Release = 0, UV, Setup }
 
 		public DebugModeEnum debugMode;
-		public Camera targetCamera;
-		public Transform background;
-		public Texture2D inputSize;
-		public Material portalIn;
+		public int inputWidth = 1920;
+		public int inputHeight = 1080;
+		public Camera inputCamera;
+		public Transform inputBackground;
+
+		public Material portaiIn;
 		public Material portalOut;
 
 		RenderTexture _inputTex;
 
-		void OnEnable() {
-			var height = 2f * targetCamera.orthographicSize;
-			background.localScale = new Vector3(height * targetCamera.aspect, height, 1f);
-		}
 		void Update () {
-			if (_inputTex == null || _inputTex.width != inputSize.width || _inputTex.height != inputSize.height) {
+			if (_inputTex == null || _inputTex.width != inputWidth || _inputTex.height != inputHeight) {
 				ReleaseTex();
-				_inputTex = CreateTex(inputSize.width, inputSize.height);
+				_inputTex = CreateTex(inputWidth, inputHeight);
 			}
 
-            targetCamera.targetTexture = _inputTex;
-            portalOut.mainTexture = _inputTex;
+			if (inputCamera != null) {
+				inputCamera.targetTexture = _inputTex;
+				if (inputBackground != null) {
+					var height = 2f * inputCamera.orthographicSize;
+					inputBackground.localScale = new Vector3(inputCamera.aspect * height, height, 1f);
+				}
+			}
 
-            ApplyDebugMode();
+			if (portaiIn != null && portalOut != null) {
+				portalOut.mainTexture = _inputTex;
+				UpdateDebugMode();
+			}
 		}
 
-		void ApplyDebugMode() {
+		void UpdateDebugMode() {
 			switch (debugMode) {
-			default:
-				SwitchKeyword(portalIn, Portal.KEYWORD_HIDDEN);
-                SwitchKeyword(portalOut, Portal.KEYWORD_ONLY_TEXTURE);
+			case DebugModeEnum.Release:
+				SwitchKeyword(portaiIn, KeywordEnum.HIDDEN.ToString());
+				SwitchKeyword(portalOut, KeywordEnum.ONLY_TEXTURE.ToString());
 				break;
 			case DebugModeEnum.UV:
-				SwitchKeyword(portalIn, Portal.KEYWORD_UV);
-				SwitchKeyword(portalOut, Portal.KEYWORD_UV);
+				SwitchKeyword(portaiIn, KeywordEnum.UV.ToString());
+				SwitchKeyword(portalOut, KeywordEnum.UV.ToString());
 				break;
 			case DebugModeEnum.Setup:
-                SwitchKeyword(portalIn, Portal.KEYWORD_ONLY_COLOR);
-                SwitchKeyword(portalOut, Portal.KEYWORD_COLOR_TEXTURE);
+				SwitchKeyword(portaiIn, KeywordEnum.ONLY_COLOR.ToString());
+				SwitchKeyword(portalOut, KeywordEnum.COLOR_TEXTURE.ToString());
 				break;
 			}
 		}

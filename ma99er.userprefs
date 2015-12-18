@@ -1,10 +1,10 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Portal\Portal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\Portal\Scripts\PortalOut.cs">
     <Files>
-      <File FileName="Assets\Packages\Portal\Examples\Example.cs" Line="45" Column="66" />
-      <File FileName="Assets\Packages\Portal\Portal.cs" Line="11" Column="49" />
-      <File FileName="Assets\Packages\Portal\Examples\Portal.shader" Line="50" Column="30" />
+      <File FileName="Assets\Packages\Portal\Scripts\PortalIn.cs" Line="12" Column="14" />
+      <File FileName="Assets\Packages\Portal\Scripts\PortalBase.cs" Line="30" Column="1" />
+      <File FileName="Assets\Packages\Portal\Scripts\PortalOut.cs" Line="8" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
