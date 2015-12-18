@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Portal Out
-  m_Shader: {fileID: 4800000, guid: 3a34b8e0969795c43a17554e360508ba, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 592355742942d9e4db3117827b6daba8, type: 3}
+  m_ShaderKeywords: ONLY_TEXTURE
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -27,4 +27,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0.5, b: 0.5, a: 0.5}

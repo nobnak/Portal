@@ -71,12 +71,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 151756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467594fa0d509fa48859b77bdde59bbb, type: 3}
+  m_Script: {fileID: 11500000, guid: a2a790dee195643478ba8407e80c522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   targetCamera: {fileID: 0}
-  pair: {fileID: 0}
-  sharedMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  background: {fileID: 0}
+  inputSize: {fileID: 0}
+  portalIn: {fileID: 2100000, guid: 8da1b55ca89a7b74c83539a5eedb02f7, type: 2}
+  portalOut: {fileID: 2100000, guid: 89124e17c22aa264c98d43723cd3753c, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -100,6 +103,14 @@ Prefab:
       propertyPath: sharedMesh
       value: 
       objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: portalIn
+      value: 
+      objectReference: {fileID: 2100000, guid: 8da1b55ca89a7b74c83539a5eedb02f7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: portalOut
+      value: 
+      objectReference: {fileID: 2100000, guid: 89124e17c22aa264c98d43723cd3753c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151756}

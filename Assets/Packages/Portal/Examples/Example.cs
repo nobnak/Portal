@@ -23,26 +23,27 @@ namespace PortalSystem {
 			if (_inputTex == null || _inputTex.width != inputSize.width || _inputTex.height != inputSize.height) {
 				ReleaseTex();
 				_inputTex = CreateTex(inputSize.width, inputSize.height);
-				targetCamera.targetTexture = _inputTex;
-				portalOut.mainTexture = _inputTex;
 			}
 
-			ApplyDebugMode();
+            targetCamera.targetTexture = _inputTex;
+            portalOut.mainTexture = _inputTex;
+
+            ApplyDebugMode();
 		}
 
 		void ApplyDebugMode() {
 			switch (debugMode) {
 			default:
 				SwitchKeyword(portalIn, Portal.KEYWORD_HIDDEN);
-				SwitchKeyword(portalOut, Portal.KEYWORD_DEFAULT);
+                SwitchKeyword(portalOut, Portal.KEYWORD_ONLY_TEXTURE);
 				break;
 			case DebugModeEnum.UV:
 				SwitchKeyword(portalIn, Portal.KEYWORD_UV);
 				SwitchKeyword(portalOut, Portal.KEYWORD_UV);
 				break;
 			case DebugModeEnum.Setup:
-				SwitchKeyword(portalIn, Portal.KEYWORD_DEFAULT);
-				SwitchKeyword(portalOut, Portal.KEYWORD_DEFAULT);
+                SwitchKeyword(portalIn, Portal.KEYWORD_ONLY_COLOR);
+                SwitchKeyword(portalOut, Portal.KEYWORD_COLOR_TEXTURE);
 				break;
 			}
 		}

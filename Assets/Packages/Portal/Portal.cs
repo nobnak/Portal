@@ -6,9 +6,11 @@ namespace PortalSystem {
 	
 	[ExecuteInEditMode]
 	public class Portal : MonoBehaviour {
-		public const string KEYWORD_DEFAULT = "DEFAULT";
+		public const string KEYWORD_COLOR_TEXTURE = "COLOR_TEXTURE";
+        public const string KEYWORD_ONLY_COLOR = "ONLY_COLOR";
+        public const string KEYWORD_ONLY_TEXTURE = "ONLY_TEXTURE";
 		public const string KEYWORD_UV = "UV";
-		public const string KEYWORD_HIDDEN = "HIDDEN";
+        public const string KEYWORD_HIDDEN = "HIDDEN";
 
 		public Camera targetCamera;
 		public Portal pair;
@@ -34,8 +36,6 @@ namespace PortalSystem {
 				DestroyImmediate(_mesh);
 		}
 		void Update() {
-
-
 			if (targetCamera != null && pair != null)
 				pair.Connect(transform.localToWorldMatrix, targetCamera, _vertices);
 		}

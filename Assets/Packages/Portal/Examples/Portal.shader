@@ -12,7 +12,7 @@
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma multi_compile COLOR TEXTURE UV HIDDEN
+			#pragma multi_compile ONLY_COLOR ONLY_TEXTURE COLOR_TEXTURE UV HIDDEN
 			#include "UnityCG.cginc"
 
 			struct appdata {
@@ -42,11 +42,15 @@
 			fixed4 frag (v2f i) : SV_Target {
 				#if defined(UV)
 				return float4(i.uv, 0.0, 0.5);
+				#elif defined(ONLY_COLOR)
+				return _Color;
 				#endif
-
-				#
+				
 				fixed4 col = tex2D(_MainTex, i.uv);
+				#if defined(COLOR_TEXTURE)
 				return col * _Color;
+				#else
+				return col;
 				#endif
 			}
 			ENDCG
