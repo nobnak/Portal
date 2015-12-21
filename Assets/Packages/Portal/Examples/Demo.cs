@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace PortalSystem {
-		
+	
 	public class Demo : MonoBehaviour {
 		public const float THREE_SIX_ZERO = 360f;
 
@@ -15,14 +15,11 @@ namespace PortalSystem {
 		GameObject[] _cubes;
 
 		void Start() {
-			_cubes = new GameObject[count];
-			for (var i = 0; i < count; i++) {
-				var pos = radius * Random.insideUnitSphere;
-				var cube = _cubes[i] = (GameObject)Instantiate(cubefab, pos, Random.rotationUniform);
-				cube.transform.SetParent(transform, false);
-			}
+			CreateInstances();
 		}
-
+		void OnDestroy() {
+			ReleaseInstances();
+		}
 		void Update() {
 			var y = Time.timeSinceLevelLoad * noiseTransitionSpeed;
 			transform.localRotation *= Quaternion.Euler(Time.deltaTime * rotationSpeed * new Vector3(
@@ -31,6 +28,28 @@ namespace PortalSystem {
 
 		float DerivativeNoise(float x, float y) {
 			return THREE_SIX_ZERO * (Mathf.PerlinNoise(x, y) - 0.5f);
+		}
+
+		void CreateInstances() {
+			_cubes = new GameObject[count];
+			for (var i = 0; i < count; i++) {
+				var pos = radius * Random.insideUnitSphere;
+				var cube = _cubes [i] = (GameObject)Instantiate (cubefab, pos, Random.rotationUniform);
+				cube.transform.SetParent (transform, false);
+			}
+		}
+		void ReleaseInstances() {
+			if (_cubes != null) {
+				for (var i = 0; i < _cubes.Length; i++)
+					DestroyAnytime(_cubes[i]);
+				_cubes = null;
+			}
+		}
+		void DestroyAnytime(GameObject go) {
+			if (Application.isPlaying)
+				Destroy(go);
+			else
+				DestroyImmediate(go);
 		}
 	}
 }

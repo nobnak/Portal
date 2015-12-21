@@ -6,6 +6,8 @@ namespace PortalSystem {
 	
 	[ExecuteInEditMode]
 	public class PortalIn : PortalBase {
+		public static readonly Color GIZMO_COLOR = Color.cyan;
+
 		public Camera targetCamera;
 		public PortalOut pair;
 
@@ -18,6 +20,9 @@ namespace PortalSystem {
 		void Update() {
 			if (targetCamera != null && pair != null)
 				pair.ConnectUV(this, targetCamera);
+		}
+		void OnDrawGizmos() {
+			DrawGizmo(GIZMO_COLOR);
 		}
 	}
 }

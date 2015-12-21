@@ -47,7 +47,11 @@ namespace PortalSystem {
 			_mesh.uv = uvs;
 			pair._mesh.uv = uvs;
 		}
-		public Mesh GenerateQuad() {
+		public void DrawGizmo(Color color) {
+			Gizmos.color = color;
+			Gizmos.DrawWireMesh(_mesh, transform.position, transform.rotation, transform.lossyScale);
+		}
+		public static Mesh GenerateQuad() {
 			var mesh = new Mesh();
 			mesh.name = "Quad Generative";
 			mesh.vertices = QUAD_VERTICES;
@@ -57,5 +61,6 @@ namespace PortalSystem {
 			mesh.RecalculateNormals();
 			return mesh;
 		}
+
 	}
 }
