@@ -11,7 +11,6 @@ namespace PortalSystem {
 		public int inputWidth = 1920;
 		public int inputHeight = 1080;
 		public Camera inputCamera;
-		public Transform inputBackground;
 
 		public Material portaiIn;
 		public Material portalOut;
@@ -24,13 +23,8 @@ namespace PortalSystem {
 				_inputTex = CreateTex(inputWidth, inputHeight);
 			}
 
-			if (inputCamera != null) {
+			if (inputCamera != null)
 				inputCamera.targetTexture = _inputTex;
-				if (inputBackground != null) {
-					var height = 2f * inputCamera.orthographicSize;
-					inputBackground.localScale = new Vector3(inputCamera.aspect * height, height, 1f);
-				}
-			}
 
 			if (portaiIn != null && portalOut != null) {
 				portalOut.mainTexture = _inputTex;
