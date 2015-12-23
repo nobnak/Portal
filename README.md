@@ -1,4 +1,4 @@
-# Portal
+# Quad Projection Mapping Package for Unity
 
 [![Thumbnail](Thumbnail.jpg)](https://vimeo.com/149746540)
 
